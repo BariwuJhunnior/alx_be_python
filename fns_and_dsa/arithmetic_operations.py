@@ -1,4 +1,4 @@
-def perform_operation(num1: float, num2: float, operation: str):
+def perform_operation(num1, num2, operation):
     
     if operation == 'add':
         return num1 + num2
@@ -13,4 +13,4 @@ def perform_operation(num1: float, num2: float, operation: str):
     else:
         raise ValueError(f"Unsupported operation: {operation}")
 
-print(perform_operation(5,6, 'add'))
+
