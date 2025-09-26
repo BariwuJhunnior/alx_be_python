@@ -3,10 +3,14 @@ FAHRENHEIT_TO_CELSIUS_FACTOR = 5 / 9
 CELSIUS_TO_FAHRENHEIT_FACTOR = 9 / 5
 
 def convert_to_celsius(fahrenheit):
+	global FAHRENHEIT_TO_CELSIUS_FACTOR
+	
 	"""Convert Fahrenheit to Celsius using the global factor."""
 	return (fahrenheit - 32) * FAHRENHEIT_TO_CELSIUS_FACTOR
 
 def convert_to_fahrenheit(celsius):
+	global CELSIUS_TO_FAHRENHEIT_FACTOR
+	
 	"""Convert Celsius to Fahrenheit using the global factor."""
 	return (celsius * CELSIUS_TO_FAHRENHEIT_FACTOR) + 32
 
@@ -25,3 +29,4 @@ if __name__ == "__main__":
 			raise ValueError("Invalid scale. Please enter 'C' for Celsius or 'F' for Fahrenheit.")
 	except ValueError as e:
 		print(f"Invalid temperature. Please enter a numeric value. ({e})")
+
