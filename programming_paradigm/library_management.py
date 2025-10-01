@@ -6,21 +6,21 @@ class Book:
 
     self._is_checked_out = False
 
-  def checkout(self):
+  def check_out_book(self):
     if self._is_checked_out:
       self._is_checked_out = True
       return True
     
     return False
 
-  def returnBook(self):
+  def return_book(self):
     if not self._is_checked_out:
       self._is_checked_out = False
       return True
     
     return False
   
-  def is_available(self):
+  def list_available_books(self):
     return not self._is_checked_out
   
   def __str__(self):
@@ -38,8 +38,8 @@ class Library:
 
   def check_out_book(self, title):
     for book in self._books:
-      if book.title == title and book.is_available():
-        book.checkout()
+      if book.title == title and book.list_available_books():
+        book.check_out_book()
         print(f"Checked Out: {book}")
         return True
     
@@ -48,7 +48,7 @@ class Library:
   
   def return_book(self, title):
     for book in self._books:
-      if not book.is_available():
+      if not book.list_available_books():
         book._is_checked_out = False
         return True
     
@@ -56,7 +56,7 @@ class Library:
     return False
   
   def list_available_books(self):
-    available = [str(book) for book in self._books if book.is_available()]
+    available = [str(book) for book in self._books if book.list_available_books()]
 
     print("Available Books")
     for book in available:
